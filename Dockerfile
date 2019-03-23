@@ -13,6 +13,7 @@ RUN apk add --no-cache \
         expat \
         glib \
         ncurses \
+        readline \
     && apk add --no-cache --virtual .build-deps \
         autoconf \
         automake \
