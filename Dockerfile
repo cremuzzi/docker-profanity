@@ -48,6 +48,12 @@ RUN apk add --no-cache \
     && sed -i '/^ACX_PTHREAD(/d' configure \
     && bash configure --disable-plugins \
     && make \
-    && make install
+    && make install \
+    && apk del .build-deps \
+    && rm -rf /usr/src/build \
+    && addgroup -g 1000 profanity \
+    && adduser -u 1000 -G profanity -s /bin/sh -D profanity
+
+WORKDIR /
 
 CMD ["profanity"]
