@@ -55,6 +55,10 @@ RUN apk add --no-cache \
     && addgroup -g 1000 profanity \
     && adduser -u 1000 -G profanity -s /bin/sh -D profanity
 
-WORKDIR /
+VOLUME ["/home/profanity"]
+
+WORKDIR /home/profanity
+
+USER profanity
 
 CMD ["profanity"]
